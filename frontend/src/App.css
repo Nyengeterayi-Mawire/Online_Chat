@@ -1,0 +1,387 @@
+/* From Uiverse.io by bociKond */
+body{
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+}
+.App{
+  padding: 0px;
+  width: 100%;
+  height: 100vh;
+  /* border: 1px solid orange; */
+}
+/*Login page*/ 
+.login,.register{
+  height: inherit;
+  display: flex;
+  justify-content: center;
+}
+.form{ 
+  width: 350px; 
+  margin: auto;
+} 
+.form .title{
+  font-size: 24px;
+  font-weight: 600; 
+  text-align: center; 
+  color:#58bc82;
+}
+.field{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+  padding-top:10px;
+}
+.field label{
+  padding:0px 0px 5px 20px;
+}
+.field input{
+  width: 260px;
+  padding: 10px 20px;
+  border-radius: 20px; 
+  border-color: transparent;
+  outline: 2px solid lightgray;
+}
+.field input:focus{
+  outline: 2px solid #58bc82;
+}
+  
+.form .submit{
+  padding: 10px 20px;
+  width : 310px;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  margin: auto;
+} 
+.form .submit:hover{
+  background-color: #58bc82;
+  color: var(--bg-dark);
+}
+.form .signin,.subtitle{
+  text-align: center;
+}
+/*main page*/ 
+.main{
+  width: inherit;
+  height: inherit;
+  display: flex;
+  overflow:hidden;
+} 
+
+/*sideBar component*/
+.sideBar{
+  height : inherit; 
+  width : 80px; 
+  display: flex;
+  flex-direction: column;
+  border-right:  1px solid grey;
+  
+}
+.sideBarButtonDiv{
+  display: flex;
+  justify-content: center;
+} 
+#bottomButton{
+  padding-bottom: 10px;
+}
+.sideBarButton{
+  width : fit-content;
+  height : fit-content;
+  padding: 10px; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+.sideBarButton:hover{
+  background-color:lightgray;
+}
+.settingsButton{
+  width: 60px;
+  height:60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+.sideBar .sideBarAvatar{
+  width: 60px;
+  height:60px;
+  border-radius: 50%; 
+  /* margin: auto; */
+} 
+
+/*Chat component css*/
+.chat{
+  height : inherit; 
+  width : 350px; 
+  border-right:  1px solid grey;
+} 
+header{
+  display: flex;
+  /* border: 1px solid green;   */
+
+}
+header h2{
+  height: fit-content;
+  padding: 0px 20px; 
+  margin-left:10px;
+  width : 200px;
+  /* border: 1px solid green;  */
+}
+header button{
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border:none;
+  background-color: transparent;
+  
+}
+header button:hover{
+  background-color: lightgray;
+}
+.searchContact{
+  width: 250px;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 20px;
+  margin: auto; 
+  margin-bottom: 10px;
+  border: 1 px solid lightgrey;
+  outline: none;
+} 
+.searchContact:focus{
+  outline: none;
+  border-color: lightgray;
+}
+.contactsList{
+  width: inherit;
+  /* border: 1px solid green; */
+}
+.contactsList button{
+  width: 100%;
+  height:fit-content;
+  background-color: transparent;
+  border: none;
+}
+.contactsList button:hover{
+  background-color: lightgray;
+}
+
+.contact{
+  display: flex;
+  width: inherit; 
+  height : fit-content ;
+  padding : 5px 20px;
+  /* border-bottom: 1px solid grey; */
+}
+.avatar{
+  width: 50px;
+  height: 50px;
+  background-color: grey;
+  border-radius: 50%;
+  /* margin-left: 20px ; */
+}
+.contactName{
+  font-size: 18px;
+  font-weight: 600;
+  height: fit-content;
+  margin: auto;
+  margin-left: 10px ;  
+}
+
+/*Messages component*/
+.messages{
+  height : inherit; 
+  width : 70%;
+  /* border:  1px solid grey; */
+}
+.messages header{
+  display: flex; 
+  height: fit-content;
+  padding :10px 30px ;
+  border-bottom: 1px solid grey;
+} 
+.headerContact{
+  display: flex; 
+  height: fit-content;
+  gap: 0px;
+}
+.usernameOnline{
+  display: column;  
+  padding: 0px 10px;
+  gap: 0px; 
+}
+.headerContact p,.headerContact h3,.headerContact{  
+  margin: 0px;
+}
+.usernameOnline h3{
+  padding: 2px 0px;
+  
+}
+/* .usernameOnline p{
+  padding-top: 2px;
+} */
+.messageLog{
+  /* display:flex;
+  flex-direction: column; */
+  background-color: #EEEEEE;
+  height: 82vh;
+  padding-top: 15px;  
+}
+.messageInput{
+  display: flex; 
+  justify-content: center;
+}
+.messageInput textarea{
+  width : 80%; 
+  border: none;
+  height: fit-content;
+  padding: 5px;
+  margin-right: 10px;
+  border-bottom: #707070;
+}
+.messageInput textarea:focus{
+  border-color: #707070;
+} 
+.messageSendDiv{
+  /* border:1px solid green; */
+  display: flex;
+  justify-content: flex-end;
+}
+.message,.messageSend{  
+  border: 1px solid grey;
+  width: fit-content;
+  min-width: 100px;
+  max-width: 400px;  
+  margin: 0px 40px 20px 40px;
+} 
+ .message{
+  border-radius: 0px 10px 10px 10px ;
+  background-color: white;
+ }
+ /* .messageSendDiv{
+  border: 1px solid red;
+  display: flex;
+  float: right;
+ } */
+ .messageSend{
+  border-radius: 10px 0px 10px 10px ;
+  background-color: #58bc82;
+  
+  
+ }
+.message p,.messageSend p{
+  margin: 0px;
+  padding: 5px; 
+  
+
+  /* padding: 0p; */
+}
+.messageTime{
+  text-align: end;
+}
+
+/*Settings component*/
+.settings{
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width : 400px;
+  height : 500px;
+  background-color:white;
+  border-radius: 10px;
+  box-shadow:5px 5px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(405px); /* Start slightly off-position */
+  transition:  transform 0.3s ease; /* Smooth transition */
+}
+.settings.show{
+  visibility: visible;
+  transform: translateY(0); /* Move into its correct position */
+  transition: transform 0.3s ease, visibility 0s 0s;
+}
+.settings.hide{
+  visibility: hidden;
+  transform: translateY(505px); /* Move down slightly for exit animation */
+  transition:  transform 1s ease, visibility 0s 3s;
+}
+.settings .profilePic{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; 
+  margin: auto;
+  padding: 20px 0px;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+} 
+.changeInfo{
+  display: flex;
+  padding-left:20px;
+}
+.changeInfo button,.closeSettings{
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%; 
+  display: flex;
+  justify-content: center;
+  padding: 2px; 
+  border: transparent;
+  background-color: transparent;
+  margin-top:2px;
+} 
+
+.changeInfo button:focus{
+  border-color: grey;
+}
+.info label{
+  padding: 5px;
+  width : 80px;
+}
+.info p{
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  
+
+} 
+.info .infoInput{
+  height: fit-content;  
+  border:1px solid grey;
+  width : 45%; 
+  padding: 5px;
+  font-size: 16px; 
+  border-radius: 20px;
+}
+.save{
+  margin: auto;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px 20px;
+  border-radius: 20px; 
+  background-color: red;
+  border: none;
+}
+.settings button:hover{
+  cursor: pointer;
+}
+.closeSettings{
+  position:absolute;
+  top:10px;
+  right:20px;
+} 
+.closeSettings:hover{
+  background-color: lightgray;
+}
+
+
+
