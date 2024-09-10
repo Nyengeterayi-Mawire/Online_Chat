@@ -235,6 +235,8 @@ header button:hover{
   background-color: #EEEEEE;
   height: 82vh;
   padding-top: 15px;  
+  overflow: auto;
+  scrollbar-width: none;
 }
 .messageInput{
   display: flex; 
@@ -246,7 +248,7 @@ header button:hover{
   height: fit-content;
   padding: 5px;
   margin-right: 10px;
-  border-bottom: #707070;
+  border:1px solid grey;
 }
 .messageInput textarea:focus{
   border-color: #707070;
@@ -274,7 +276,7 @@ header button:hover{
  } */
  .messageSend{
   border-radius: 10px 0px 10px 10px ;
-  background-color: #58bc82;
+  background-color:#58bc82;
   
   
  }
@@ -312,12 +314,18 @@ header button:hover{
   transform: translateY(505px); /* Move down slightly for exit animation */
   transition:  transform 1s ease, visibility 0s 3s;
 }
+.profilePicDiv{
+  width:fit-content;
+  height:fit-content;
+  margin: auto;
+  padding: 20px 0px;
+}
 .settings .profilePic{
   width: 150px;
   height: 150px;
   border-radius: 50%; 
-  margin: auto;
-  padding: 20px 0px;
+  
+  /* padding: 20px 0px; */
 }
 .info{
   display: flex;
@@ -327,6 +335,13 @@ header button:hover{
 .changeInfo{
   display: flex;
   padding-left:20px;
+}
+.changeInfo input{
+  font-size: 16px;
+  width: 80%;
+  padding: 3px 5px; 
+  border-radius: 20px;
+  border: 2px solid lightgrey;
 }
 .changeInfo button,.closeSettings{
   width: fit-content;
@@ -351,16 +366,11 @@ header button:hover{
   margin: 0px;
   font-size: 16px;
   font-weight: 600;
-  
-
-} 
-.info .infoInput{
   height: fit-content;  
-  border:1px solid grey;
-  width : 45%; 
-  padding: 5px;
-  font-size: 16px; 
-  border-radius: 20px;
+  /* border:1px solid #EEEEEE; */
+  width : fit-content; 
+  padding: 5px;   
+  
 }
 .save{
   margin: auto;
@@ -368,8 +378,8 @@ header button:hover{
   font-weight: 600;
   padding: 5px 20px;
   border-radius: 20px; 
-  background-color: red;
-  border: none;
+  background-color: #58bc82;
+  border: 1px solid black;
 }
 .settings button:hover{
   cursor: pointer;
@@ -383,5 +393,60 @@ header button:hover{
   background-color: lightgray;
 }
 
+/*Message notification css*/
+.messageNotification{
+  width : fit-content;
+  height : fit-content; 
+  padding:10px 20px;
+  min-width: 200px;
+  position: absolute;
+  top:10px;
+  left:30%;
+  background-color: #EEEEEE;
+  display: flex;
+  border-radius: 50px;
+  box-shadow:5px 5px 20px rgba(0, 0, 0, 0.35);
+  transform: translateY(-100px);
+  transition: transform 0.3s ease;
+} 
+.notificationInnerDiv{
+  display:flex;   
+  margin:auto;
+
+}
+.notificationAvatar{
+  width : 50px;
+  height : 50px;
+  border-radius: 50%;
+  background-color: grey;
+} 
+.messageNotification p{
+  margin:0px;
+  padding-left: 10px; 
+  max-width: 300px; 
+  width: fit-content; 
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 5px;
+
+}
+.notificationUsername{
+  font-size: 18px;
+  font-weight: 600;
+
+  /* padding-bottom: 5px; */
+} 
+.messageNotification.show{
+  visibility: visible; 
+  transform: translateY(0px);
+  transition : transform 0.3s ease, visibility 0s 0s;
+
+}
+.messageNotification.hide{
+  visibility: hidden;
+  transform: translateY(-100px);
+  transition : transform 1s ease, visibility 0s 5s;
+}
 
 

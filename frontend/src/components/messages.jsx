@@ -1,4 +1,4 @@
-import { useState,useContext,useEffect } from "react";
+import { useState,useContext,useEffect,useRef } from "react";
 import socketContext from "../context/context";
 import Message from "./message";
 import Messagesend from "./messageSend";
@@ -8,6 +8,7 @@ import { LuSendHorizonal } from "react-icons/lu";
 const Messages = () => {    
     const [conversation,setConversation] = useState('');
     const [sendMessage,setSendMessage] = useState(''); 
+    const messageLogRef = useRef(null);
     const {messageContact,userLoggedIn,onlineUsers,socket,messages,messagesSet,addMessage,contacts,addContact,token} = useContext(socketContext);
 
     /*useEffect to fetch conversation between user and conntact, and then fetch converstaion messages*/
@@ -27,7 +28,14 @@ const Messages = () => {
                 }
             })
         }
-    },[messageContact])
+    },[messageContact]) 
+
+    /*Useffect to scroll message log to bottom when new messsage received*/ 
+    useEffect(()=>{
+        if(messageLogRef.current){
+            messageLogRef.current.scrollTop = messageLogRef.current.scrollHeight;
+        }
+    },[messages]);
 
     const handleSend =()=>{
         if(!sendMessage.trim()){
@@ -73,8 +81,7 @@ const Messages = () => {
             }
             
         }
-    }
-    
+    }    
     
     return(
         
@@ -93,7 +100,7 @@ const Messages = () => {
                 
                 {/* <div style={onlineUsers.filter(user=>user.userID === messageContact._id).length !== 0?{backgroundColor:'green',width:'40px',height:'40px'}:{backgroundColor:'red',width:'40px',height:'40px'}}></div> */}
             </header>
-            <div className="messageLog">
+            <div className="messageLog" ref={messageLogRef}>
                 {messages && messages.map((message,index)=>{
                     return message.userID !== userLoggedIn._id ? <Message message={message} index={index}/> : <Messagesend message={message} index={index}/>
                 })}

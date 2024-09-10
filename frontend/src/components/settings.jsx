@@ -1,4 +1,5 @@
 import { useState,useContext, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 import socketContext from "../context/context";
 import axios from 'axios';
 import { MdOutlineModeEditOutline } from "react-icons/md";
@@ -12,6 +13,7 @@ const Settings = ({changeDisplayProfile,displayProfile}) => {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [confirmPassword,setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
     useEffect(()=>{
         setUsername(userLoggedIn.username);
@@ -40,12 +42,27 @@ const Settings = ({changeDisplayProfile,displayProfile}) => {
         })
         
     }
+
+    const handleDeleteAccount = () => {
+        axios.delete('http://localhost:3001/users/'+userLoggedIn._id,{headers:{Authorization:token}}).then(res=>{
+            if(res.data.error){
+                console.log(res.data.error)
+            }else{
+                navigate('/login');
+                changeUserLoggedIn({});
+                
+            }
+        })
+    }
     return (
         <div className={`settings ${displayProfile?'show':'hide'}`} >
             <div style={{position:'relative'}}>
                 <div style={{display:'flex'}}>
-                    {userLoggedIn.avatar?<img className="profilePic" src={`http://localhost:3001/${userLoggedIn.avatar}`}/>:<div className="profilePic" style={{backgroundColor:'grey'}}></div>}
+                    {userLoggedIn.avatar?<div className="profilePicDiv"><img className="profilePic" src={`http://localhost:3001/${userLoggedIn.avatar}`}/></div>:<div className="profilePicDiv"><div className="profilePic" style={{backgroundColor:'grey'}}></div></div>}
                 </div>
+                <div style={{display:'flex',paddingTop:'0px'}}>
+                    <button className='save' style={{backgroundColor:'red'}} onClick={handleDeleteAccount}>Delete Account</button>
+                </div> 
                 <div className='info'>
                     <label>Username : </label> 
                     <div className="changeInfo">
@@ -68,7 +85,7 @@ const Settings = ({changeDisplayProfile,displayProfile}) => {
                         <button onClick={()=>setDisablePassword(false)}><MdOutlineModeEditOutline size={'1.5em'} style={{margin:'auto'}}/></button> 
                     </div> 
                 </div>  
-                <div style={{display:'flex',paddingTop:'30px'}}>
+                <div style={{display:'flex',paddingTop:'30px',color:'red'}}>
                     <button className='save' onClick={handleSave}>Save</button>
                 </div> 
                 <button className="closeSettings" onClick={()=>changeDisplayProfile(false)}><IoClose  size={'1.5em'} style={{margin:'auto'}} /></button>            

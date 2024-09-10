@@ -4,14 +4,16 @@ import { TiMessages } from "react-icons/ti";
 import socketContext from "../context/context";
 import { useNavigate} from 'react-router-dom';
 import Settings from "./settings";
+import { io } from "socket.io-client";
 const Sidebar = () => {
-    const {userLoggedIn,changeUserLoggedIn,changeMessageContact} = useContext(socketContext); 
+    const {userLoggedIn,changeUserLoggedIn,changeMessageContact,socket} = useContext(socketContext); 
     const [displayProfile,setDisplayProfile]= useState(false);
     const navigate = useNavigate();
 
     const handleLogout = () => {
         changeUserLoggedIn({}); 
         changeMessageContact({});
+        socket.disconnect();
         navigate('/login');
     }
     return(

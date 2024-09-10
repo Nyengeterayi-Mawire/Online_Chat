@@ -21,8 +21,8 @@ const Login = ()=> {
             axios.post('http://localhost:3001/users/login',loginData).then(res=>{                
                 if(res.data.error){
                     console.log(res.data.error)
-                }else{
-                    socketSet(io('http://localhost:3001/',{query:{userID : res.data._id,username : res.data.username}}));
+                }else{                    
+                    socketSet(io('http://localhost:3001/',{query:{userID : res.data.user._id,username : res.data.user.username}}));
                     changeUserLoggedIn(res.data.user);  
                     changeToken(res.data.token);                  
                     navigate('/chat');

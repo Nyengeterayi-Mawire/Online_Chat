@@ -38,6 +38,7 @@ export const Socketprovider = ({children}) => {
         setSearchContacts([contact,...contacts]);
     }
     const changeMessageContact = (user) => {
+        console.log('change contact',user)
         setMessageContact(user);
     } 
     const changeOnlineUsers = (users) => {
