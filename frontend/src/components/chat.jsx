@@ -39,7 +39,7 @@ const Chat = () => {
                 <h2>Chats</h2> 
                 <button onClick={()=>setDisplay(true)}><FaPlus size={'1.5em'} style={{margin:'auto'}} /></button>
             </header> 
-            <div>
+            <div >
                 <div style={{display:'flex',justifyContent:'center'}}>
                     <input className="searchContact" placeholder='search users' onChange={handleSearch}/> 
                 </div>                

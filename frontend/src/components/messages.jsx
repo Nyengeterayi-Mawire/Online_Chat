@@ -109,7 +109,7 @@ const Messages = () => {
                 <textarea onChange={(e)=>setSendMessage(e.target.value)} value={sendMessage}/> 
                 <button className='sideBarButton' onClick={handleSend}><LuSendHorizonal size={'2em'} /></button>
             </div>
-            </> : <div><p>Empty</p></div>}
+            </> : <div style={{display:'flex',height:'100%',justifyContent:'center',alignItems:'center',fontSize:'16px'}}><p>Select a contact and start chatting</p></div>}
 
         </div>
     )
