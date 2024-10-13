@@ -26,12 +26,14 @@ const Chat = () => {
     }
     
     const handleSearch = (e) => {
-        if(e.target.value.trim()){
-            contactsSet(contacts=> contacts=contacts.filter(contact=>contact.data.username.includes(e.target.value)))
-        }else{
-            contactsSet(searchContacts);
-        }    
-        }
+        // if(e.target.value.trim()!==''){
+        //     console.log(contacts.filter(contact=>{
+        //         if (contact.data.username.includes(e.target.value)) return contact
+        //     } ))        
+        // }else{
+        //     contactsSet(searchContacts);
+        // }    
+    }
         
     return(
         !display? <div className="chat">            

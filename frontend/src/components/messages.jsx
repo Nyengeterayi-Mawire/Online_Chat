@@ -98,7 +98,6 @@ const Messages = () => {
                 </div>
                 
                 
-                {/* <div style={onlineUsers.filter(user=>user.userID === messageContact._id).length !== 0?{backgroundColor:'green',width:'40px',height:'40px'}:{backgroundColor:'red',width:'40px',height:'40px'}}></div> */}
             </header>
             <div className="messageLog" ref={messageLogRef}>
                 {messages && messages.map((message,index)=>{

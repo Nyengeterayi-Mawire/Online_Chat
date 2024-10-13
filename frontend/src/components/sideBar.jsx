@@ -33,10 +33,9 @@ const Sidebar = () => {
                     
                 </div>
             </div> 
-            <Settings changeDisplayProfile={setDisplayProfile} displayProfile={displayProfile}/>
             
-            {/* <button className='settingsButton' style={{backgroundImage:`http://localhost:3001/${userLoggedIn.avatar}`}}> */}
-            {/* </button> */}
+            <Settings changeDisplayProfile={setDisplayProfile} displayProfile={displayProfile}/>
+           
 
 
         </div>

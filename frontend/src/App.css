@@ -3,12 +3,15 @@ body{
   margin: 0;
   padding: 0;
   overflow:hidden;
+  background-color: #FAF9F6;
 }
+
 .App{
   padding: 0px;
   width: 100%;
-  height: 100vh;
+  height: 100vh;  
 }
+
 /*Login page*/ 
 .login,.register{
   height: inherit;
@@ -42,6 +45,7 @@ body{
   border-color: transparent;
   outline: 2px solid lightgray;
 }
+
 .field input:focus{
   outline: 2px solid #58bc82;
 }
@@ -66,26 +70,35 @@ body{
 .main{
   width: inherit;
   height: inherit;
-  display: flex;
+  display: grid; 
+  grid-template-columns: 80px 350px 1fr;
+  grid-template-rows: 1fr ; 
+  grid-template-areas: 'sidebar chats chat';
   overflow:hidden;
 } 
 
 /*sideBar component*/
 .sideBar{
-  height : inherit; 
-  width : 80px; 
+  grid-area: sidebar;
+  height : 95vh; 
+  width : 90%; 
   display: flex;
   flex-direction: column;
-  border-right:  1px solid grey;
-  
+  background-color: white; 
+  border-radius: 14px;
+  margin: auto;
+  box-shadow: 0px 0px 10px 2px #d0d0d0;
+
 }
 .sideBarButtonDiv{
   display: flex;
   justify-content: center;
 } 
+
 #bottomButton{
   padding-bottom: 10px;
 }
+
 .sideBarButton{
   width : fit-content;
   height : fit-content;
@@ -96,9 +109,11 @@ body{
   border: none;
   background-color: transparent;
 }
+
 .sideBarButton:hover{
   background-color:lightgray;
 }
+
 .settingsButton{
   width: 60px;
   height:60px;
@@ -106,22 +121,25 @@ body{
   display: flex;
   justify-content: center;
 }
+
 .sideBar .sideBarAvatar{
   width: 60px;
   height:60px;
   border-radius: 50%; 
-  
 } 
 
 /*Chat component css*/
 .chat{
-  height : inherit; 
-  width : 350px; 
-  border-right:  1px solid grey;
+  grid-area: chats;
+  height : 95vh;  
+  width: 90%;
+  border-radius: 14px;
+  background-color: white; 
+  box-shadow: 0px 0px 10px 2px #d0d0d0;
+  margin: auto;
 } 
 header{
   display: flex;
-  
 
 }
 header h2{
@@ -129,8 +147,8 @@ header h2{
   padding: 0px 20px; 
   margin-left:10px;
   width : 200px;
-  
 }
+
 header button{
   width: fit-content;
   height: fit-content;
@@ -143,9 +161,11 @@ header button{
   background-color: transparent;
   
 }
+
 header button:hover{
   background-color: lightgray;
 }
+
 .searchContact{
   width: 250px;
   height: fit-content;
@@ -153,27 +173,25 @@ header button:hover{
   border-radius: 20px;
   margin: auto; 
   margin-bottom: 10px;
-  border: 1 px solid lightgrey;
+  border: 2px solid lightgrey;
   outline: none;
 } 
+
 .searchContact:focus{
   outline: none;
   border-color: lightgray;
 }
 .contactsList{
-  width: 100%; 
-  max-height : 85vh; 
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  
+  width: inherit;
 }
+
 .contactsList button{
   width: 100%;
   height:fit-content;
   background-color: transparent;
   border: none;
 }
+
 .contactsList button:hover{
   background-color: lightgray;
 }
@@ -183,15 +201,15 @@ header button:hover{
   width: inherit; 
   height : fit-content ;
   padding : 5px 20px;
-  
 }
+
 .avatar{
   width: 50px;
   height: 50px;
   background-color: grey;
   border-radius: 50%;
- 
 }
+
 .contactName{
   font-size: 18px;
   font-weight: 600;
@@ -201,20 +219,30 @@ header button:hover{
 }
 
 /*Messages component*/
-.messages{
-  height : inherit; 
-  width : 70%;
-  /* border:  1px solid grey; */
+.messages{ 
+  grid-area: chat;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px 1fr 70px;
+  grid-template-areas: 'contactInfoArea' 'messageLog' 'textInputArea';
+  height : 95vh;  
+  width: 97%;
+  margin: auto;
 }
-.messages header{
+
+.messages header{ 
+  grid-area: contactInfoArea;
   display: flex; 
-  height: fit-content;
-  padding :10px 30px ;
-  border-bottom: 1px solid grey;
+  align-items: center; 
+  border-radius: 14px;
+  background-color: white; 
+  box-shadow: 0px 0px 10px 2px #d0d0d0; 
+  padding-left: 10px;
 } 
 .headerContact{
   display: flex; 
-  height: fit-content;
+  height: fit-content; 
+  margin-left: 10px;
   gap: 0px;
 }
 .usernameOnline{
@@ -230,17 +258,18 @@ header button:hover{
   
 }
 
-.messageLog{
-  
-  background-color: #EEEEEE;
-  height: 82vh;
-  padding-top: 15px;  
+.messageLog{ 
+  grid-area: messageLog; 
+  padding-top: 10px;
   overflow: auto;
   scrollbar-width: none;
 }
+
 .messageInput{
+  grid-area: textInputArea;
   display: flex; 
-  justify-content: center;
+  justify-content: center; 
+  align-items: center;
 }
 .messageInput textarea{
   width : 80%; 
@@ -248,9 +277,12 @@ header button:hover{
   height: fit-content;
   padding: 5px;
   margin-right: 10px;
-  border:1px solid grey;
+  border:2px solid lightgray; 
+  background-color: transparent;
+  border-radius: 14px;
 }
-.messageInput textarea:focus{
+.messageInput textarea:focus{ 
+  background-color: white;
   border-color: #707070;
 } 
 .messageSendDiv{
@@ -268,16 +300,18 @@ header button:hover{
   border-radius: 0px 10px 10px 10px ;
   background-color: white;
  }
+ 
  .messageSend{
   border-radius: 10px 0px 10px 10px ;
-  background-color:#58bc82;
-  
-  
+  background-color:#58bc82; 
  }
+
 .message p,.messageSend p{
   margin: 0px;
   padding: 5px; 
+ 
 }
+
 .messageTime{
   text-align: end;
 }
@@ -315,17 +349,19 @@ header button:hover{
   width: 150px;
   height: 150px;
   border-radius: 50%; 
-  
 }
+
 .info{
   display: flex;
   flex-direction: column;
   padding: 0px 10px;
 } 
+
 .changeInfo{
   display: flex;
   padding-left:20px;
 }
+
 .changeInfo input{
   font-size: 16px;
   width: 80%;
@@ -333,6 +369,7 @@ header button:hover{
   border-radius: 20px;
   border: 2px solid lightgrey;
 }
+
 .changeInfo button,.closeSettings{
   width: fit-content;
   height: fit-content;
@@ -359,8 +396,8 @@ header button:hover{
   height: fit-content;  
   width : fit-content; 
   padding: 5px;   
-  
 }
+
 .save{
   margin: auto;
   font-size: 18px;
@@ -370,14 +407,17 @@ header button:hover{
   background-color: #58bc82;
   border: 1px solid black;
 }
+
 .settings button:hover{
   cursor: pointer;
 }
+
 .closeSettings{
   position:absolute;
   top:10px;
   right:20px;
 } 
+
 .closeSettings:hover{
   background-color: lightgray;
 }
@@ -402,13 +442,15 @@ header button:hover{
   display:flex;   
   margin:auto;
 
-} */
+}
+
 .notificationAvatar{
   width : 50px;
   height : 50px;
   border-radius: 50%;
   background-color: grey;
 } 
+
 .messageNotification p{
   margin:0px;
   padding-left: 10px; 
@@ -420,10 +462,12 @@ header button:hover{
   padding-top: 5px;
 
 }
+
 .notificationUsername{
   font-size: 18px;
   font-weight: 600;
 } 
+
 .messageNotification.show{
   visibility: visible; 
   transform: translateY(0px);
